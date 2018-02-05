@@ -1,0 +1,133 @@
+ 1463  apt install git-gui
+ 1464  find / -name git-gui
+ 1465  ls -la /usr/share/git-gui
+ 1468  cd git-gui/
+ 1557  git clone https://github.com/webismymind/editablegrid.git
+ 2018  git init 
+ 2019  git status
+ 2020  git add *
+ 2021  git status
+ 2022  git commit -m "Initial files for monthly summary scripts"
+ 2024  git status
+ 2025  more .git
+ 2026  cd .git
+ 2033  git log
+ 2034  more ~/.gitconfig 
+ 2035  git branch
+ 2036  git branch branch1
+ 2037  git branch
+ 2038  git checkout -b branch1
+ 2040  git checkout -b branch2
+ 2043  git branch -b branch1
+ 2044  git checkout -b branch1
+ 2045  git branch delete branch1
+ 2046  git checkout -b branch1
+ 2047  git branch
+ 2048  git branch -d delete
+ 2049  git branch
+ 2050  git brand -d branch1
+ 2051  git branch -d branch1
+ 2052  git branch
+ 2053  git checkout -b branch1
+ 2054  git branch
+ 2055  git status
+ 2057  git add branch1.txt
+ 2058  git status
+ 2059  git commit -m "First commit for branch1"
+ 2060  git status
+ 2062  git branch
+ 2063  git branch master
+ 2064  git branch
+ 2065  git checkout master
+ 2066  git remote add origin https://github.com/gsundac/monthly_summary.git
+ 2067  git push -u origin master
+ 2069  git status
+ 2070  git add README -m "Updated README to include GIT info"
+ 2071  git add README 
+ 2072  git commit -m "Updated README to include GIT info"
+ 2073  git push -u origin master
+ 2074  git status
+ 2076  mv .git /var/tmp/
+ 2077  git status
+ 2091  vi .gitignore
+ 2092  git status
+ 2096  vi .gitignore 
+ 2103  vi .gitignore
+ 2111  git init
+ 2112  git add *
+ 2113  git status
+ 2114  git rm --cached *
+ 2115  git status
+ 2116  git reset HEAD
+ 2120  git rm --cached scripts/README 
+ 2121  git add README 
+ 2122  git status
+ 2123  git commit -m "First Commit with Full Structure"
+ 2125  git status
+ 2126  git add README 
+ 2127  git commit -m "Updated the README to give directory structure incase it gets ignored by git"
+ 2129  git push -u origin master
+ 2130  git remote add origin https://github.com/gsundac/monthly_summary.git
+ 2131  git push -u origin master
+ 2132  git remote -v
+ 2133  git remote rm destination monthly_summary.git
+ 2134  git remote rm origin 
+ 2135  git remote -v
+ 2137  mv /var/tmp/.git .
+ 2138  git status
+ 2139  git remote -v
+ 2140  git remote rm origin 
+ 2141  git remote -v
+ 2142  mv .git /var/tmp/
+ 2143  git status
+ 2148  git status
+ 2149  git push -u origin master
+ 2150  git remote add origin https://github.com/gsundac/monthly_summary.git
+ 2151  git push -u origin master
+ 2152  git ls-tree
+ 2153  git ls-tree -r master --name-only
+ 2154  git help gitignore
+ 2156  vi .gitignore 
+ 2157  git status
+ 2158  vi .gitignore 
+ 2159  git status
+ 2161  git status
+ 2167  vi .gitignore 
+ 2168  git status
+ 2169  vi .gitignore 
+ 2170  git status
+ 2171  vi .gitignore 
+ 2172  git status
+ 2173  git add ./
+ 2174  git status
+ 2175  git commit -m "touching up directory structure with proper gitignores"
+ 2181  vi .gitignore 
+ 2187  vi .gitignore 
+ 2189  find . -name .gitignore
+ 2191  git status
+ 2192  git add *
+ 2193  git status
+ 2194  git commit -m "touching up directory structure with proper gitignores"
+ 2195  git commit -U origin master
+ 2196  git push -u origin master
+ 2197  git push --help
+ 2199  git branch 
+ 2200  git pull help
+ 2201  git branch branch1
+ 2202  git branch
+ 2203  git checkout branch1
+ 2212  git status
+ 2213  git add getdata4.bash 
+ 2214  git commit -m "Updated getdata4.bash to include Centrify child domain info."
+ 2215  git branch master
+ 2216  git checkout master
+ 2219  git branch
+ 2220  git merge branch1
+ 2221  git status
+ 2222  git push -u origin
+ 2224  git status
+ 2225  git branch
+ 2226  git blame getdata4.bash
+ 2227  git branch -av
+ 2228  git show
+ 2229  git log

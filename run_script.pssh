@@ -1,0 +1,7 @@
+#! /bin/bash
+SSH='/usr/bin/ssh'
+PSSH="/usr/bin/pssh"
+PSSH_OPTIONS=' -O PasswordAuthentication=no -O StrictHostKeyChecking=no -P -t20'
+##echo "How to run this .... run_script.pssh LIST_FILE SCRIPT
+
+$PSSH $PSSH_OPTIONS -h $1 -I< $2 | egrep -v  "SUCCESS|FAILURE" | awk -F: '{print $2}' 

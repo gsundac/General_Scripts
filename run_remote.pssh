@@ -1,0 +1,8 @@
+#! /bin/bash
+# SSH="/opt/csw/bin/ssh "
+PSSH="/usr/bin/pssh"
+ 
+PSSH_OPTIONS=' --inline-stdout -O PasswordAuthentication=no -O StrictHostKeyChecking=no -O ConnectTimeout=3 -t3'
+
+$PSSH $PSSH_OPTIONS  -h $1 $2 | grep -v SUCCESS
+

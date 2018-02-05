@@ -1,0 +1,56 @@
+#! /bin/bash
+##set -x
+## Wrapper script to determine OS type and send the right command to add users.
+## To be called by "./add_user.bash 
+# ------
+## Important!! - Don't change the marker line below or else everything will break
+## It is used as an anchor to append in variables from another script using sed.
+
+##MARKER
+LINUX_CMD="/usr/sbin/useradd -u $USID -g $GID -m -c $GC_COS -p $PASSWD -k /etc/skel -s $SHELL -d /home/$USERNAME $USERNAME"
+NLINUX_CMD="/usr/sbin/useradd -u $USID -g $GID -m -c $GC_COS -k /etc/skel -s $SHELL -d /home/$USERNAME $USERNAME"
+
+UNAME=`uname`
+
+## Figure out auth mechanism and if auth is centrify, don't add users.
+ if [ -f "/etc/nsswitch.conf" ]; then
+ 	sed -n '/^passwd/p' /etc/nsswitch.conf | grep -i Centrify > /dev/null 2>&1
+              if [ $? = 0 ]; then
+                AUTH=Centrify
+ 		echo "This server is managed by Centrify.  Users should be added through Active Directory.  Exiting with out adding any accounts!!"
+ 		exit
+ 	      fi
+ else
+ 	AUTH=Files
+ 	echo "Adding user to server..."
+ fi
+
+case "$UNAME" in
+
+ HP-UX)
+	`$NLINUX_CMD`;
+        if [ $? = 0 ]; then
+        echo "$USERNAME added."
+        else 
+        echo "$USERNAME not added.  Please check output for more info."
+        fi ;;
+
+ SunOS)
+	`$NLINUX_CMD`;
+        if [ $? = 0 ]; then
+        echo "$USERNAME added."
+        else 
+        echo "$USERNAME not added.  Please check output for more info."
+        fi ;;
+
+ Linux)
+        `$LINUX_CMD`;
+	if [ $? = 0 ]; then
+	echo "$USERNAME added."
+	else
+	echo "$USERNAME not added.  Please check output for more info."
+	fi ;;
+
+ *) 
+	printf "Can't determine OS Type - Quitting!!";;
+esac

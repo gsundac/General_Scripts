@@ -1,0 +1,16 @@
+#!/usr/bin/expect 
+# command to change passwords via ssh
+# to be called as ./chgpasswd.expect username password host
+set timeout 10
+set USERNAME [lindex $argv 0]
+set PASSWORD [lindex $argv 1]
+set HOST [lindex $argv 2]
+spawn ssh -t -q -o PasswordAuthentication=no -o StrictHostKeyChecking=no -o ConnectTimeout=3 $HOST passwd $USERNAME
+
+expect "assword: "
+send "$PASSWORD\r"
+expect "assword: "
+send "$PASSWORD\r"
+expect "*successfully*"
+interact
+#expect #;
